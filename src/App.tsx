@@ -43,7 +43,7 @@ export default function App() {
 
 
         <p>Add this link to the top of your code and viola you have access to the functions!</p>
-        <code className="prettyprint">&lt;script src="https://stoic-ritchie-015834.netlify.app/public/scripts/main.js"&gt;&lt;/script&gt;</code>
+        <code className="prettyprint">&lt;script src="https://hennyscript.netlify.app/public/scripts/main.js"&gt;&lt;/script&gt;</code>
         <br />
 
         <p>Here are some of the functions and their equivalents</p>
