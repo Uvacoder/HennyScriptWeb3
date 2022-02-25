@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(21, 21, 24);
+    color: rgb(245, 243, 243);
+  }
+  canvas {
+    background-color: black;
+  }
+  h1 {
+    font-size: 60px;
+    color: rgba(13, 139, 197, 0.856);
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    padding: 40px;
+    background-color: rgb(10, 10, 10);
+    box-shadow: 0px 2px 8px 8px rgba(0, 0, 0, 0.705);
+  }
+  p {
+    font-size: 16px;
+    line-height: 60px;
+    color: rgba(250, 250, 250, 0.603);
+  }
+  #emoji {
+    font-size: 45px;
+    color:rgba(255, 255, 255, 0.74);
+  }
+  div {
+    width: 80%;
+    background-color: rgb(5, 5, 5);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    align-items: center;
+    font-weight: normal;
+    color: rgba(122, 248, 179, 0.459);
+    gap: 20px;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 2px 8px 8px rgba(0, 0, 0, 0.473);
+  }
+  code {
+    color: rgb(219, 89, 14);
+    background-color: rgb(20, 19, 22);
+    width: fit-content;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+  }
+  
+  h2 {
+    font-size: 20px;
+    color: rgba(13, 108, 197, 0.76);
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    padding: 40px;
+    background-color: rgb(10, 10, 10);
+    box-shadow: 0px 2px 8px 8px rgba(0, 0, 0, 0.705);
+  }
+  canvas {
+    color: rgba(116, 29, 151, 0.801);
+  }
+  code .nocode,
+  span.nocode{
+    color:#1100ff;
+  }
+  pre .str,
+  code .str {
+    color: #5ed9ff;
+  } /* string  - green */
+  pre .kwd,
+  code .kwd {
+    color: #e28964;
+  } /* keyword - dark pink */
+  pre .com,
+  code .com {
+    color: #aeaeae;
+    font-style: italic;
+  } /* comment - gray */
+  pre .typ,
+  code .typ {
+    color: rgba(91, 228, 125, 0.699);
+  } /* type - light blue */
+  .lit {
+    color: #1100ff;
+  } /* literal - blue */
+  pre .pun,
+  code .pun {
+    color: rgba(255, 255, 255, 0.767);
+  } /* punctuation - white */
+  pre .pln,
+  code .pln {
+    color: rgba(63, 194, 194, 0.89);
+  } /* plaintext - white */
+  span .tag,
+  pre .tag,
+  code .tag {
+    color: #898bff;
+  } /* html/xml tag    - light blue */
+  pre .atn,
+  code .atn {
+    color: #bd6b6b;
+  } /* html/xml attribute name  - khaki */
+  pre .atv,
+  code .atv {
+    color: #c1c424b9;
+  } /* html/xml attribute value - green */
+  pre .dec,
+  code .dec {
+    color: rgb(51, 135, 204);
+  } /* decimal - blue */
+  
+  pre.prettyprint,
+  code.prettyprint {
+    background-color: #000;
+    border-radius: 8px;
+  }
+  
+  pre.prettyprint {
+    width: 95%;
+    margin: 1em auto;
+    padding: 1em;
+    white-space: pre-wrap;
+  }
