@@ -11,34 +11,27 @@ import "./style.css"
 export default function App() {
   return (
     <>
-    <h1 id="heading">Welcome to HennyScript<br />
-          Homepage of HENDX Token</h1>
-        <h3>This is a Javascript library made specifically for when you are drinking.</h3>
-        <h4>It is also the function of the HENDX token.</h4>
-        <span id="emoji">🍻</span>
-        <h5>HENDX provides ownership over the success of HennyScript</h5>
+      <h1 id="heading">Welcome to HennyScript<br />
+        Homepage of HENDX Token</h1>
+      <h3>HennyScript is a Javascript library made specifically for when you are drinking.</h3>
+      <h4>The HENDX token is a Utility token that will be redeemable for custom software.</h4>
+      <p>My Twitter: <a href="https://twitter.com/hendrixjoshua">🐥</a></p>
+      <span id="emoji">🍻</span>
+      <h5>HENDX provides ownership over the success of HennyScript</h5>
+      <h6>HennyScript earnings and donations go directly into HENDX Liquidity Pool and Token Buybacks.</h6>
       <Container maxW="3xl">
         Solana INFO
         {/* Get SOL price from Coingecko */}
         <PriceCard />
 
-        {/* Get Data from web3js */}
-        <SupplyCard />
-        <StatsCard />
-        <TpsCard />
-
-        {/* Try examples addresses and Txs with Search */}
-        {/* <p>Spl Mint (Token): 2Zzh3VH5T3smrkp4BtKFtszN3Mt7aAr6bUy6LQVc8ZKi</p>
-        <p>Spl Account: D5duahBbnCDKkge82PhJbQjvisDqdnMJYVciod5PyH4J</p>
-        <p>
-          Tx:
-          4Rk1q5xG7gURFhLhHH3QGTWpsJCfPiHgj8rbKc2kcCiFkGozjBUNbWuHGfxkfsev1jGhWkvrQusgByT1Gf7GQEDm
-        </p> */}
-        <SearchCard />
-
         {/* Get user SOL balance with Phantom Wallet */}
         <BalanceCard />
+        <p>HENDX Roadmap:<br /> 2/25/22: Inital Liquidity pooled and 20% up for sale on Raydium. <br />
+          3/1/22: Secondary offering, added liquidity up to 20% more for sale based on price.<br />
+          4/1/22: HENDX Utility Development Milestone, HENDX will have a function to redeem custom software from HENDX Dev Team.<br />
 
+
+        </p>
         <p>Here is a lowdown on how to use HennyScript and the functions within.</p>
 
 
