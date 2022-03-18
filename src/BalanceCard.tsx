@@ -123,7 +123,7 @@ export default function BalanceCard() {
             <Text key={i}>{log}</Text>
           ))}
           {Hbalance ? Hbalance > 3000 && <HStack w="100%"><Text>You have enough tokens to see the secret code word: Hennessy</Text></HStack> : ""}
-          {Hbalance ? Hbalance > 3000 && <Canvas /> : ""}
+          {Hbalance ? Hbalance > 5000 && <Canvas /> : ""}
         </>
       ) : (
         <>
