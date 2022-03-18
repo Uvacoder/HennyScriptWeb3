@@ -108,19 +108,20 @@ export default function BalanceCard() {
   };
 
   return (
-    <VStack w="100%" align="start" background="gray.800" rounded="lg" p="4">
+    <VStack w="100%" align="start" background="gray.900" rounded="lg" p="4">
       {provider && provider.publicKey ? (
         <>
           <Heading size="md">Your Address:</Heading>
           <Text>{provider.publicKey?.toBase58()}</Text>
-          <Text>Balance: {balance} SOL</Text>
-          <Text>Balance: {Hbalance} HENDX</Text>
+          <Text>SOL Balance: {balance} SOL</Text>
+          <Text>HENDX Balance: {Hbalance} HENDX</Text>
 
           <Button onClick={disconnect}>Disconnect</Button>
           <Text fontWeight="bold">Logs</Text>
           {logs.map((log, i) => (
             <Text key={i}>{log}</Text>
           ))}
+          {Hbalance ? Hbalance > 3000 && <Text>You have enough tokens to see the secret code word: Hennessy </Text> : ""}
         </>
       ) : (
         <>

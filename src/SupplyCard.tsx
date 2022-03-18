@@ -4,6 +4,7 @@ import {
   Connection,
   clusterApiUrl,
   VoteAccountStatus,
+  PublicKey,
 } from "@solana/web3.js";
 import { useEffect, useState } from "react";
 import {
@@ -16,20 +17,23 @@ import { Heading, VStack, Text, HStack } from "@chakra-ui/react";
 function displayLamports(value: number) {
   return abbreviatedNumber(lamportsToSol(value));
 }
-
+const mintAccount = new PublicKey(
+  "2Tp4hCJ24aRnsLShz9U96VtTSDHuaKL7eD7vj8Stvxhn"
+);
 export default function SupplyCard() {
-  const [supply, setSupply] = useState<Supply>();
+  const [supply, setSupply] = useState<number>();
   const [voteAccounts, setVoteAccounts] = useState<VoteAccountStatus>();
   useEffect(() => {
     getSupply();
   }, []);
   async function getSupply() {
-    const url = clusterApiUrl("devnet").replace("api", "explorer-api");
+    const url = clusterApiUrl("mainnet-beta").replace("api", "explorer-api");
     const connection = new Connection(url, "finalized");
-    const supply: Supply = (await connection.getSupply()).value;
+    const supply = await connection.getTokenSupply(mintAccount);
+    console.log(supply)
     const voteAccounts = await connection.getVoteAccounts();
     setVoteAccounts(voteAccounts);
-    setSupply(supply);
+    setSupply(Number(supply.value.uiAmountString));
   }
 
   const delinquentStake = React.useMemo(() => {
@@ -60,37 +64,19 @@ export default function SupplyCard() {
   }
 
   return (
-    <HStack py="2" spacing="2">
-      <VStack w="100%" align="start" background="gray.800" rounded="lg" p="4">
-        <Heading size="md">Active Stake</Heading>
-        {activeStake && supply && (
+      <VStack w="100%" align="start" background="gray.900" rounded="lg" >
+        <Heading size="md">HENDX Circulating Supply</Heading>
+        {supply && (
           <>
-            <Text fontSize="lg" fontWeight="bold">
-              <em>{displayLamports(activeStake)}</em> /{" "}
-              <small>{displayLamports(supply.total)}</small>
-            </Text>
-            {delinquentStakePercentage && (
-              <Text>
-                24h Vol: Delinquent stake: <em>{delinquentStakePercentage}%</em>
-              </Text>
-            )}
-          </>
-        )}
-      </VStack>
-      <VStack w="100%" align="start" background="gray.800" rounded="lg" p="4">
-        <Heading size="md">Circulating Supply</Heading>
-        {activeStake && supply && (
-          <>
-            <Text fontSize="lg" fontWeight="bold">
-              <em>{displayLamports(supply.circulating)}</em> /{" "}
-              <small>{displayLamports(supply.total)}</small>
+            <Text fontSize="lg" textAlign="center" width="100%" margin="0 auto" fontWeight="bold">
+              {abbreviatedNumber(supply)} /{" "}
+              {abbreviatedNumber(supply)} HENDX
             </Text>
             <Text>
-              Non circulating <em>{displayLamports(supply.nonCirculating)}</em>
+              Non circulating <em>{0} HENDX</em>
             </Text>
           </>
         )}
       </VStack>
-    </HStack>
   );
 }

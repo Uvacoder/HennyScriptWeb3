@@ -19,7 +19,7 @@ export default function StatsCard() {
     getClusterStats();
   }, []);
   async function getClusterStats() {
-    const url = clusterApiUrl("devnet").replace("api", "explorer-api");
+    const url = clusterApiUrl("mainnet-beta").replace("api", "explorer-api");
     const connection = new Connection(url);
 
     const epochInfo = await connection.getEpochInfo();
@@ -42,7 +42,7 @@ export default function StatsCard() {
   }
   return (
     <VStack w="100%" align="start" background="gray.900" rounded="lg" p="4">
-      <Heading size="md">Cluster Stats</Heading>
+      <Heading size="md">Current SOL Cluster Stats</Heading>
       {clusterStats ? (
         <>
           <Table variant="simple">

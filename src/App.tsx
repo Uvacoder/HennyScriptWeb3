@@ -26,6 +26,8 @@ export default function App() {
 
         {/* Get user SOL balance with Phantom Wallet */}
         <BalanceCard />
+        <SupplyCard />
+        <StatsCard />
         <p>HENDX Roadmap:<br /> 2/25/22: Inital Liquidity pooled and 20% up for sale on Raydium. <br />
           3/1/22: Secondary offering, added liquidity up to 20% more for sale based on price.<br />
           4/1/22: HENDX Utility Development Milestone, HENDX will have a function to redeem custom software from HENDX Dev Team.<br />
