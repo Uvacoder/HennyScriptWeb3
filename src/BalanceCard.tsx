@@ -7,7 +7,8 @@ import {
   LAMPORTS_PER_SOL,
 
 } from "@solana/web3.js";
-import { Button, Text, Heading, VStack } from "@chakra-ui/react";
+import { Button, Text, Heading, VStack, HStack } from "@chakra-ui/react";
+import Canvas from "./Canvas";
 
 type DisplayEncoding = "utf8" | "hex";
 type PhantomEvent = "disconnect" | "connect";
@@ -121,7 +122,8 @@ export default function BalanceCard() {
           {logs.map((log, i) => (
             <Text key={i}>{log}</Text>
           ))}
-          {Hbalance ? Hbalance > 3000 && <Text>You have enough tokens to see the secret code word: Hennessy </Text> : ""}
+          {Hbalance ? Hbalance > 3000 && <HStack w="100%"><Text>You have enough tokens to see the secret code word: Hennessy</Text></HStack> : ""}
+          {Hbalance ? Hbalance > 3000 && <Canvas /> : ""}
         </>
       ) : (
         <>
