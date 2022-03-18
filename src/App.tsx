@@ -20,9 +20,9 @@ export default function App() {
       <h5>HENDX provides ownership over the success of HennyScript</h5>
       <h6>HennyScript earnings and donations go directly into HENDX Liquidity Pool and Token Buybacks.</h6>
       <Container maxW="3xl">
-        Solana INFO
-        {/* Get SOL price from Coingecko */}
-        <PriceCard />
+        {/* Solana INFO
+        {/* Get SOL price from Coingecko }
+        <PriceCard /> */}
 
         {/* Get user SOL balance with Phantom Wallet */}
         <BalanceCard />

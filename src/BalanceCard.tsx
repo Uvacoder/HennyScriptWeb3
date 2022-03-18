@@ -5,7 +5,7 @@ import {
   Transaction,
   clusterApiUrl,
   LAMPORTS_PER_SOL,
-  
+
 } from "@solana/web3.js";
 import { Button, Text, Heading, VStack } from "@chakra-ui/react";
 
@@ -55,6 +55,7 @@ export default function BalanceCard() {
   const connection = new Connection(NETWORK);
 
   const [balance, setBalance] = useState<number>();
+  const [Hbalance, setHBalance] = useState<number>();
   const [logs, setLogs] = useState<string[]>([]);
   const addLog = (log: string) => setLogs([...logs, log]);
   useEffect(() => {
@@ -72,7 +73,21 @@ export default function BalanceCard() {
     try {
       const res = await provider.connect();
       addLog(JSON.stringify(res));
-      // const publicKey = new PublicKey(res.publicKey);
+      //the public solana address
+      //mintAccount = the token mint address
+      const mintAccount = new PublicKey(
+        "2Tp4hCJ24aRnsLShz9U96VtTSDHuaKL7eD7vj8Stvxhn"
+      );
+      const account = await connection.getTokenAccountsByOwner(res.publicKey, {
+        mint: mintAccount
+      });
+
+      console.log(account.value[0].pubkey.toString());
+      const HENDXKey = new PublicKey(account.value[0].pubkey.toString());
+      connection.getTokenAccountBalance(HENDXKey).then((balance) => {
+        console.log(balance);
+        setHBalance(balance.value.uiAmount || undefined)
+      });
       connection.getBalance(res.publicKey).then((balance) => {
         setBalance(balance / LAMPORTS_PER_SOL);
       });
@@ -99,6 +114,7 @@ export default function BalanceCard() {
           <Heading size="md">Your Address:</Heading>
           <Text>{provider.publicKey?.toBase58()}</Text>
           <Text>Balance: {balance} SOL</Text>
+          <Text>Balance: {Hbalance} HENDX</Text>
 
           <Button onClick={disconnect}>Disconnect</Button>
           <Text fontWeight="bold">Logs</Text>
